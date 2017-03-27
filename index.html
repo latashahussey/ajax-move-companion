@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Moving Companion</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!---Skeleton CSS Stylesheet-->
+    <link rel="stylesheet" href="src/css/style.css">
+
 </head>
 
-<body>
+<body class="container">
 
-    <form id="form-container" class="form-container">
-        <label for="street">Street: </label><input type="text" id="street" value="">
-        <label for="city">City: </label><input type="text" id="city" value="">
-        <button id="submit-btn">Submit</button>
+    <h1 id="greeting" class="greeting twelve columns u-center-text">Where do you want to live?</h1>
+
+    <form id="form-container" class="form-container twelve columns">
+        <span class="six columns"><label for="street">Street: </label><input type="text" id="street" class="u-full-width" value=""></span>
+        <span class="four columns"><label for="city">City: </label><input type="text" class="u-full-width" id="city" value=""></span>
+        <button id="submit-btn" class="button-primary two columns u-pull-down">Submit</button>
     </form>
 
-    <hr>
-
-    <h2 id="greeting" class="greeting">Where do you want to live?</h2>
-
+    <hr class="twelve columns">
 
     <div class="wikipedia-container">
         <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
@@ -31,8 +33,8 @@
         <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
     </div>
 
-    <script src="js/libs/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="src/js/libs/jquery.min.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
 
 </html>
