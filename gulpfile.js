@@ -1,15 +1,15 @@
 var gulp = require('gulp'),
   rename = require('gulp-rename'),
-  minifyCSS = require('gulp-minify-css'),
+  minifyCSS = require('gulp-clean-css'),
+  minifyJS = require('gulp-uglify'),
   concat = require('gulp-concat'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
-  responsive = require('gulp-responsive-images'),
   paths = {
-    imgSrc: 'src/img/',
-    imgDest: 'dest/img',
     cssSrc: 'src/css/',
-    cssDest: 'dest/css/'
+    cssDest: 'dist/css/',
+    jsSrc: 'src/js/',
+    jsDest: 'dist/js/'
   },
   watch = require('gulp-watch');
 
@@ -27,52 +27,25 @@ gulp.task('jshint', function() {
 gulp.task('minifyCSS', function() {
   gulp.src(paths.cssSrc + '*.css')
     .pipe(minifyCSS())
-    .pipe(concat('main.min.css'))
+    .pipe(concat('style.min.css'))
     .pipe(gulp.dest(paths.cssDest));
 });
 
-//Resize and compress images, then move them to the destination
-gulp.task('responsiveImages', function() {
-  gulp.src(paths.imgSrc + '/**/*')
-    .pipe(responsive({
-      '*.jpeg': [{
-        width: 300,
-        height: 200,
-        crop: true,
-        suffix: '-small',
-        quality: 60
-      }],
-      '*.jpg': [{
-        width: 300,
-        height: 200,
-        crop: true,
-        suffix: '-small',
-        quality: 60
-      }],
-      'code-display-image.jpg': [{
-        suffix: '-large',
-        width: 1000,
-        quality: 60
-      }],
-      'jd-logo.jpg': [{
-        width: 150,
-        crop: true,
-        suffix: '-normal'
-      }, {
-        width: 75,
-        crop: true,
-        suffix: '-small'
-      }]
-    }))
-    .pipe(gulp.dest(paths.imgDest));
+//Grab all js files then minify, merge, and move  them to destination
+gulp.task('minifyJS', function() {
+  gulp.src(paths.jsSrc + '*.js')
+    .pipe(minifyJS())
+    .pipe(concat('app.min.js'))
+    .pipe(gulp.dest(paths.jsDest));
 });
+
 
 //Watch for css or changes to images, then run tasks
 gulp.task('watch', function() {
   // Endless stream mode
   gulp.watch(paths.cssSrc + '**/*.css', ['minifyCSS']);
-  gulp.watch(paths.imgSrc + '**/*.*', ['responsiveImages']);
+  gulp.watch(paths.jsSrc + '**/*.js', ['minifyJS']);
 });
 
 //Run all gulp tasks
-gulp.task('default', ['jshint', 'minifyCSS', 'responsiveImages', 'watch']);
+gulp.task('default', ['jshint', 'minifyCSS', 'minifyJS','watch']);
