@@ -14,16 +14,16 @@ function loadData() {
   var $streetAddress = $('#street').val();
   var $city = $('#city').val();
   var $location = $streetAddress + ", " + $city;
-  var $src = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + $location;
+  var $src = "https://maps.googleapis.com/maps/api/streetview?size=1200x1200&location=" + $location;
 
   // Update greeting
   $greeting.text("So you wanna live at " + $streetAddress + " in " + $city + "?");
 
   // Position streeview image below horizontal line
-  $('hr').after("<img>");
+  //$('hr').after("<img>");
 
   // Add source and style image
-  $('img').addClass('bgimg').attr('src', $src);
+  $('body').attr('background', $src);
 
 
   // Load New York Times API Request data with filtered results
