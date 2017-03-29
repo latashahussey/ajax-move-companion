@@ -27,17 +27,34 @@ function loadData() {
 
 
   // Load New York Times API Request data with filtered results
-  (function() {
+
         var $apiKey = "api-key=8777759c3d664c56a7a7005eaabec777";
         var $filteredQuery = "&fq=" + $city;
         var $sort = "&sort=newest";
         var $filteredList = "&fl=web_url,snippet,headline";
-        var $nytAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $apiKey + $filteredQuery + $sort + $filteredList;
-        
-        $.getJSON($nytAPI).done(function(response) {
-           console.log(response);
+        var $nytAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $apiKey +
+        $filteredQuery + $sort + $filteredList;
+
+        $.getJSON($nytAPI).done(function(data) {
+            //Update NYT Header element
+            $nytHeaderElem.text("New York Times Articles About " + $city);
+
+            //Save NYT articles
+           var articles = data.response.docs;
+
+           // List these articles
+           for(var i = 0; i < articles.length; i++) {
+               var article = articles[i];
+
+               $nytElem.append('<li class="article">' +
+               '<a href="'+ article.web_url+'">'+article.headline.main+'</a>' +
+               '<p>'+ article.snippet + '</p>' +
+               '</li>');
+           }
         });
-    })();
+
+
+
 
   return false;
 };
