@@ -13,34 +13,45 @@
 
 </head>
 
-<body class="container">
+<body>
+    <!-- Main -->
+    <main class="container">
+        <h1 id="greeting" class="greeting twelve columns u-center-text">Where do you want to live?</h1>
 
-    <h1 id="greeting" class="greeting twelve columns u-center-text">Where do you want to live?</h1>
+        <!-- Form -->
+        <form id="form-container" class="form-container twelve columns">
+            <span class="six columns"><label for="street">Street: </label><input type="text" id="street" class="u-full-width" value=""></span>
+            <span class="four columns"><label for="city">City: </label><input type="text" class="u-full-width" id="city" value=""></span>
+            <button id="submit-btn" class="button-primary two columns u-pull-down">Submit</button>
+        </form>
 
-    <form id="form-container" class="form-container twelve columns">
-        <span class="six columns"><label for="street">Street: </label><input type="text" id="street" class="u-full-width" value=""></span>
-        <span class="four columns"><label for="city">City: </label><input type="text" class="u-full-width" id="city" value=""></span>
-        <button id="submit-btn" class="button-primary two columns u-pull-down">Submit</button>
-    </form>
+        <hr class="twelve columns">
 
-    <hr class="twelve columns">
+        <!-- New York Times Articles -->
+        <section class="nytimes-container u-pull-left seven columns ">
+            <h3 id="nytimes-header">New York Times Articles</h3>
+            <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+        </section>
 
-    <div class="wikipedia-container">
-        <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
-        <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
-    </div>
+        <!-- Wikipedia Links -->
+        <aside class="wikipedia-container u-pull-right four columns">
+            <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+            <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
+        </aside>
 
+        <!-- JQuery CDN (minified)-->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </main>
 
-    <div class="nytimes-container">
-        <h3 id="nytimes-header">New York Times Articles</h3>
-        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
-    </div>
+    <!--Footer-->
+    <footer class="twelve columns ">
+        <p>Coded with love by LaTasha Hussey</p>
 
-    <!-- JQuery CDN (minified)-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </footer>
 
     <!-- Custom Javascript -->
     <script src="dist/js/app.min.js"></script>
+
 </body>
 
 </html>
