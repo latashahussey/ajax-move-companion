@@ -25,6 +25,23 @@ function loadData() {
   // Add source and style image
   $('img').addClass('bgimg').attr('src', $src);
 
+
+  // Load New York Times API Request data
+
+  var $apiKey = "api-key=8777759c3d664c56a7a7005eaabec777";
+  var $query = "&fq=" + $city;
+  var $sort = "&sort=newest";
+  var $nytAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $apiKey + $query + $sort;
+
+  $.getJSON($nytAPI)
+    .done(function(result) {
+      console.log(result);
+    })
+    .fail(function(err) {
+      throw err;
+    });
+
+
   return false;
 };
 
