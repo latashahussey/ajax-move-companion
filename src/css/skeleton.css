@@ -29,6 +29,8 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
+  background-color: #fff;
+  opacity: 0.9;
   position: relative;
   width: 100%;
   max-width: 960px;
@@ -121,6 +123,8 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
@@ -155,11 +159,16 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 p {
   margin-top: 0; }
 
+footer p {
+    text-align: center;
+}
+
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #1EAEDB;
+  text-decoration: none; }
 a:hover {
   color: #0FA0CE; }
 
@@ -288,7 +297,7 @@ label > .label-body {
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
-  list-style: circle inside; }
+  list-style: none; }
 ol {
   list-style: decimal inside; }
 ol, ul {
@@ -386,6 +395,11 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
+
+
+form, .nytimes-container, .wikipedia-container {
+    padding: 30px;
+}
 
 
 /* Clearing
