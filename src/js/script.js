@@ -10,21 +10,20 @@ function loadData() {
   $wikiElem.text("");
   $nytElem.text("");
 
-
-
   // load streetview
   var $streetAddress = $('#street').val();
   var $city = $('#city').val();
   var $location = $streetAddress + ", " + $city;
   var $src = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + $location;
 
-  $greeting.text("So you wanna live at " + $streetAddress + "?");
+  // Update greeting
+  $greeting.text("So you wanna live at " + $streetAddress + " in " + $city + "?");
 
-  $('body').append("<img>")
+  // Position streeview image below horizontal line
+  $('hr').after("<img>");
+
+  // Add source and style image
   $('img').addClass('bgimg').attr('src', $src);
-
-
-
 
   return false;
 };
