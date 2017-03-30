@@ -14,7 +14,7 @@ function loadData() {
   var $streetAddress = $('#street').val();
   var $city = $('#city').val();
   var $location = $streetAddress + ", " + $city;
-  var $src = "https://maps.googleapis.com/maps/api/streetview?key=AIzaSyD8cwXSZ2fEc-g_ohYQ2ygnsZq6xRkQRgg&size=1200x1200&location=" + $location;
+  var $src = "https://maps.googleapis.com/maps/api/streetview?size=1200x1200&location=" + $location + "&key=AIzaSyBs0B9PkP8NAkmtTWj8tn74B1gvw5q5IL8";
 
   // Update greeting
   $greeting.text("So you wanna live at " + $streetAddress + " in " + $city + "?");
@@ -59,6 +59,11 @@ function loadData() {
    // Load Wikipedia API data using JSONP, no API key required
   var apiWiki = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=wikiCallback&search=" + $city;
 
+  // Handle errors loading Wikipedia API links
+  var wikiApiTimeout = setTimeout(function () {
+    $wikiElem.text("Failed to Get Wikipedia Resources");
+  }, 8000);
+
   $.ajax({
 
       url: apiWiki,
@@ -78,6 +83,9 @@ function loadData() {
               '<a href="'+ url +'">'+ wikiArticle +'</a>' +
               '</li>');
           };
+
+          // API call successfull, no longer need timeout
+          clearTimeout(wikiRequestTimeout);
       }
 
   });
