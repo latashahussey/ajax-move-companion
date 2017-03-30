@@ -57,7 +57,7 @@ function loadData() {
    });
 
    // Load Wikipedia API data using JSONP, no API key required
-  var apiWiki = "http://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=wikiCallback&search=" + $city;
+  var apiWiki = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=wikiCallback&search=" + $city;
 
   $.ajax({
 
