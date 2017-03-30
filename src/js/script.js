@@ -14,7 +14,7 @@ function loadData() {
   var $streetAddress = $('#street').val();
   var $city = $('#city').val();
   var $location = $streetAddress + ", " + $city;
-  var $src = "https://maps.googleapis.com/maps/api/streetview?size=1200x1200&location=" + $location;
+  var $src = "httpss://maps.googleapis.com/maps/api/streetview?size=1200x1200&location=" + $location;
 
   // Update greeting
   $greeting.text("So you wanna live at " + $streetAddress + " in " + $city + "?");
@@ -32,7 +32,7 @@ function loadData() {
     var $filteredQuery = "&fq=" + $city;
     var $sort = "&sort=newest";
     var $filteredList = "&fl=web_url,snippet,headline";
-    var $nytAPI = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + $apiKey +
+    var $nytAPI = "httpss://api.nytimes.com/svc/search/v2/articlesearch.json?" + $apiKey +
     $filteredQuery + $sort + $filteredList;
 
     $.getJSON($nytAPI).done(function(data) {
@@ -57,7 +57,7 @@ function loadData() {
    });
 
    // Load Wikipedia API data using JSONP, no API key required
-  var apiWiki = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=wikiCallback&search=" + $city;
+  var apiWiki = "httpss://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=wikiCallback&search=" + $city;
 
   $.ajax({
 
@@ -72,7 +72,7 @@ function loadData() {
           for(var i = 0; i < wikiArticles.length; i++) {
               var wikiArticle = wikiArticles[i];
 
-              var url='http://en.wikipedia.org/wiki/' + wikiArticle;
+              var url='https://en.wikipedia.org/wiki/' + wikiArticle;
 
               $wikiElem.append('<li class="article">' +
               '<a href="'+ url +'">'+ wikiArticle +'</a>' +
