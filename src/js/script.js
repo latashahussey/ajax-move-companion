@@ -14,7 +14,7 @@ function loadData() {
   var $streetAddress = $('#street').val();
   var $city = $('#city').val();
   var $location = $streetAddress + ", " + $city;
-  var $src = "https://maps.googleapis.com/maps/api/streetview?size=1200x1200&location=" + $location;
+  var $src = "https://maps.googleapis.com/maps/api/streetview?key=AIzaSyD8cwXSZ2fEc-g_ohYQ2ygnsZq6xRkQRgg&size=1200x1200&location=" + $location;
 
   // Update greeting
   $greeting.text("So you wanna live at " + $streetAddress + " in " + $city + "?");
