@@ -1,5 +1,5 @@
-# Your Moving Companion
-Using jQuery, created a move companion application that pulls data from three APIs: the New York Times, Wikipedia, and Google Streetview then dynamically modifies the DOM to display the information. Further customized the project by personalizing the design using Skeleton CSS
+# AJAX Moving Companion
+Using jQuery and AJAX, created a move companion application that pulls data from three APIs: the New York Times, Wikipedia, and Google Streetview then dynamically modifies the DOM to display the information. Further customized the project by personalizing the design using Skeleton CSS
 
 ## How to Use this Application
 
