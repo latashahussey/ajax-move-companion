@@ -85,7 +85,7 @@ function loadData() {
           };
 
           // API call successfull, no longer need timeout
-          clearTimeout(wikiRequestTimeout);
+          clearTimeout(wikiApiTimeout);
       }
 
   });
